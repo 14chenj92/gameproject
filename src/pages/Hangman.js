@@ -1,8 +1,9 @@
 import "./Hangman.css"
 import React, { useState, useEffect } from "react";
-import Figure from "../components/Figure.js"
-import WrongLetters from "../components/WrongLetters.js"
-import DisplayWord from "../components/DisplayWord.js"
+import Figure from "../components/Figure.js";
+import WrongLetters from "../components/WrongLetters.js";
+import DisplayWord from "../components/DisplayWord.js";
+import Alert from "../components/Alert.tsx";
 
 const words = [ "disaster","hierarchy","establish","bucket","stake","bother","bitter","amputate" ]
 let selectedWord = words[Math.floor(Math.random() * words.length)];
@@ -36,10 +37,11 @@ const Hangman = () => {
     return (
     <>
     <h1>Hangman</h1>
-    <div className="game-container">
+    <div className="game-container fasthidden">
     <Figure wrongLetters={wrongLetters}/>
     <WrongLetters wrongLetters={wrongLetters}/>
     <DisplayWord selectedWord={selectedWord} correctLetters={correctLetters}/>
+    <Alert/>
     </div>
     </>
     );
